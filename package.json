@@ -1,0 +1,23 @@
+{
+  "name": "sync-streams",
+  "version": "1.0.0",
+  "description": "sync multiple streams, into a single output stream",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xinghul/sync-streams.git"
+  },
+  "keywords": [
+    "sync",
+    "stream"
+  ],
+  "author": "Levi Lu <xinghu1989@gmail.com> (http://levi-lu.net/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/xinghul/sync-streams/issues"
+  },
+  "homepage": "https://github.com/xinghul/sync-streams"
+}
