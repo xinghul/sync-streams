@@ -4,7 +4,7 @@
   var stream = require("stream")
   ,   util   = require("util");
 
-  var PassThrough = stream.PassThrough;
+  var PassThrough = stream.PassThrough || require("readable-stream").PassThrough;
   util.inherits(SyncStream, PassThrough);
 
   function SyncStream(options) {

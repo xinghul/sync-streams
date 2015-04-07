@@ -1,7 +1,8 @@
 +function() {
   "use strict";
 
-  var mock = require("mock-data");
+  var mock = require("mock-data")
+  ,   util = require("util");
 
   var syncStream = require("./")
   ,   rInt       = mock.generate({type: "integer", count: 5})
@@ -10,17 +11,25 @@
 
   syncStream.add(rInt).add(rDate).add(rIpv4);
 
-  syncStream.on("data", function (row) {
-    console.log(row);
-  });
+  var Writable = require("stream").Writable;
 
-  syncStream.on("end", function() {
-    // console.log("all end");
-  });
+  function WriteStream(options) {
+    options = options || {};
+    options.objectMode = true;
 
-  syncStream.on("error", function(error) {
-    console.log(error);
-  });
+    Writable.call(this, options);
+  };
+  util.inherits(WriteStream, Writable);
 
+  WriteStream.prototype._write = function(chunk, encoding, __callback) {
+    console.log("#", chunk);
+    __callback();
+  };
+
+
+
+  var writeStream = new WriteStream();
+
+  syncStream.pipe(writeStream);
 
 }();

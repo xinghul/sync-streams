@@ -1,6 +1,6 @@
 {
   "name": "sync-streams",
-  "version": "1.3.0",
+  "version": "1.5.0",
   "description": "sync multiple streams, into a single output stream",
   "main": "index.js",
   "scripts": {
@@ -21,6 +21,7 @@
   },
   "homepage": "https://github.com/xinghul/sync-streams",
   "dependencies": {
-    "mock-data": "^1.3.3"
+    "mock-data": "^1.3.3",
+    "readable-stream": "^1.0.33"
   }
 }
