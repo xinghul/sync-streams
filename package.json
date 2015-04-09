@@ -1,6 +1,6 @@
 {
   "name": "sync-streams",
-  "version": "1.5.2",
+  "version": "1.6.0",
   "description": "sync multiple streams, into a single output stream",
   "main": "index.js",
   "scripts": {

@@ -1,4 +1,4 @@
-+function() {
++ function() {
   "use strict";
 
   var stream = require("stream")
@@ -7,7 +7,12 @@
   var PassThrough = stream.PassThrough || require("readable-stream").PassThrough;
   util.inherits(SyncStream, PassThrough);
 
-  function SyncStream(options) {
+  function SyncStream(options, arr) {
+    if (Array.isArray(options)) {
+      arr = options;
+      options = null;
+    }
+
     options = options || {};
     options.objectMode = options.objectMode === false ? false : true;
 
@@ -18,6 +23,12 @@
     this._streams    = [];
     this._streamEnd  = [];
     this._dataQueues = [];
+
+    if (Array.isArray(arr)) {
+      for (var i = 0; i < arr.length; i ++) {
+        this.add(arr[i]);
+      }
+    }
   }
 
   SyncStream.prototype._rowReady = function() {
@@ -87,6 +98,6 @@
   };
 
 
-  module.exports = new SyncStream();
+  module.exports = SyncStream;
 
 }();
